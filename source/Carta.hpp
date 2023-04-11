@@ -6,7 +6,7 @@
 #include <time.h>
 #include <vector>
 
-enum class Palo {Oros,Copas,Espadas,Bastos};
+enum class Palo {OROS,COPAS,ESPADAS,BASTOS};
 
 class Carta{
     public:
@@ -14,10 +14,5 @@ class Carta{
         C2D_Sprite sprite;
         float px1,px2,py1,py2;
         Palo palo;
-    
-    bool onTouch(float posx,float posy){
-        return posx<=px1&&posx>=px2&&posy<=py1&&posy>=py2;
-    }
-
-    
+        bool onTouch(float posx,float posy);   
 };
