@@ -9,8 +9,8 @@ Existen dos opciones para poder jugar al juego:
 ## Contenido
 Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten las cartas y se colocan en la pantalla superior ocultándolas, si son de la futura IA, o en la pantalla inferior mostrando su valor, si son las del jugador. En todo momento se aseguran que las cartas repartidas no se repiten.
 
-## Última actualización (11/04) v2
+## Última actualización (12/04)
 
-La jugabilidad no ha cambiado en absoluto. Se han cambiado las clases dividiendo la definición en headers (.hpp) y la implementación en archivos cpp, siguiendo así el estándar en C++ para proyectos grandes.
+La jugabilidad no ha cambiado en absoluto. Se ha modularizado completamente el proyecto en clases siguiendo el estándar de C++, separando las clases en headers y en archivos cpp. Se han creado los métodos básicos que seguirán las clases dentro del juego y se ha modificado el mainLoop del juego para detectar cuándo se toca una carta, en teoría dándole la vuelta, ~~pero esto sólo se comprobará si funciona cuando se arreglen los errores de compilación~~ :)
 
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
