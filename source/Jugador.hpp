@@ -4,8 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "Carta.hpp"
 #include <vector>
-#include "carta.hpp"
+
+#ifndef JUGADOR_H
+#define JUGADOR_H
 
 class Jugador
 {
@@ -16,5 +19,9 @@ public:
     bool isPlayer;
     bool CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQueGanaActualmente, Palo triunfo);
     Carta lanzaCarta();
-    
+    void nuevaMano();
+    Jugador(std::vector<Carta> cartas, bool isPlayer);
+    Jugador();
 };
+
+#endif

@@ -6,12 +6,25 @@ Jugador::Jugador(std::vector<Carta> cartas,bool isPlayer){
     this->isPlayer=isPlayer;
 }
 
+
+void Jugador::nuevaMano(){
+    cartas.clear();
+    for (size_t i = 0; i < 3; i++)
+    {
+        Carta nuevaCarta;
+        cartas.push_back(nuevaCarta);
+    }
+    
+    cartasPermitidas = cartas;
+}
+
 /**
 * returns true: la carta que se echa se convierte en la carta que gana, false: no lo hace
 */
-bool CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQueGanaActualmente, Palo triunfo)
+bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQueGanaActualmente, Palo triunfo)
 {
-    cartasPermitidas.clear();
+    
+    this->cartasPermitidas.clear();
     // la primera regla es asistir al palo de la primera carta jugada
     for (size_t i = 0; i < cartas.size(); i++)
     {
@@ -88,7 +101,7 @@ bool CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQueGanaActua
 /**
 * La IA usará esto para lanzar alguna de las cartas que se permiten
 */
-Carta lanzaCarta(){
+Carta Jugador::lanzaCarta(){
     srand(time(NULL));
     return cartasPermitidas[rand()%cartasPermitidas.size()];
 }
