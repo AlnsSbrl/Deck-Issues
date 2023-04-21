@@ -1,4 +1,4 @@
-#Bug Solving
+# Bug Solving
 
 Esta rama es un proyecto de consola de C++ en Visual Studio, diseñado para depurar los fallos de lógica que pueden ir ocurriendo, aislándolos del uso de las librerías de 3ds y de las que manejan gráficos.
 
