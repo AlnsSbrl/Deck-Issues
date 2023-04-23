@@ -9,8 +9,10 @@ Existen dos opciones para poder jugar al juego:
 ## Contenido
 Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten las cartas y se colocan en la pantalla superior ocultándolas, si son de la futura IA, o en la pantalla inferior mostrando su valor, si son las del jugador. En todo momento se aseguran que las cartas repartidas no se repiten.
 
-## Última actualización (12/04)
+## Actualizaciones: 
 
-La jugabilidad no ha cambiado en absoluto. Se ha modularizado completamente el proyecto en clases siguiendo el estándar de C++, separando las clases en headers y en archivos cpp. Se han creado los métodos básicos que seguirán las clases dentro del juego y se ha modificado el mainLoop del juego para detectar cuándo se toca una carta, en teoría dándole la vuelta, ~~pero esto sólo se comprobará si funciona cuando se arreglen los errores de compilación~~ :)
+(12/04) La jugabilidad no ha cambiado en absoluto. Se ha modularizado completamente el proyecto en clases siguiendo el estándar de C++, separando las clases en headers y en archivos cpp. Se han creado los métodos básicos que seguirán las clases dentro del juego y se ha modificado el mainLoop del juego para detectar cuándo se toca una carta, en teoría dándole la vuelta, ~~pero esto sólo se comprobará si funciona cuando se arreglen los errores de compilación~~ :)
+
+(21/04) Se creó la rama [Debug Changes](https://github.com/AlnsSbrl/Deck-Issues/tree/debug-changes) para situar un proyecto de consola en Visual Studio que se usará para encontrar errores de lógica.
 
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
