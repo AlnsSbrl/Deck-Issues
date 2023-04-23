@@ -1,21 +1,14 @@
 #include "Jugador.hpp"
 
-Jugador::Jugador(std::vector<Carta> cartas,bool isPlayer){
-    this->cartas=cartas;
-    cartasPermitidas=cartas;
-    this->isPlayer=isPlayer;
+Jugador::Jugador(Carta* carta, Carta* carta2, Carta* carta3){
+    cartas.push_back(carta);
+    cartas.push_back(carta2);
+    cartas.push_back(carta3);
 }
+//todo: asignar correctamente las cartas de los jugadores
+//mediante punteros
 
-
-void Jugador::nuevaMano(){
-    cartas.clear();
-    for (size_t i = 0; i < 3; i++)
-    {
-        Carta nuevaCarta;
-        cartas.push_back(nuevaCarta);
-    }
-    
-    cartasPermitidas = cartas;
+Jugador::Jugador(){   
 }
 
 /**
@@ -28,7 +21,7 @@ bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQue
     // la primera regla es asistir al palo de la primera carta jugada
     for (size_t i = 0; i < cartas.size(); i++)
     {
-        if (cartas[i].palo == primeraCartaJugada->palo)
+        if (cartas[i]->palo == primeraCartaJugada->palo)
         {
             cartasPermitidas.push_back(cartas[i]);
         }
@@ -37,14 +30,14 @@ bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQue
     //en el caso de asistir, la segunda regla indica que es obligatorio echar una carta con más valor
     if (cartasPermitidas.size() > 0)
     {
-        std::vector<Carta> cartasQueSuperanVariasCondiciones;
+        std::vector<Carta*> cartasQueSuperanVariasCondiciones;
         // en el caso de que otro jugador haya sacado un triunfo DEJA DE SER OBLIGATORIO subir,
         // ya que las cartas de triunfo tienen prioridad, pero tendremos que asistir de todas formas, dando igual el valor de la carta que echemos
         if (primeraCartaJugada->palo == cartaQueGanaActualmente->palo)
         {
             for (size_t i = 0; i < cartasPermitidas.size(); i++)
             {
-                if (cartaQueGanaActualmente->valor < cartasPermitidas[i].valor)
+                if (cartaQueGanaActualmente->valor < cartasPermitidas[i]->valor)
                     {
                     cartasQueSuperanVariasCondiciones.push_back(cartasPermitidas[i]);
                 }
@@ -71,13 +64,13 @@ bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQue
         {
             // si la carta que gana NO es triunfo, se añaden todas las que sean del palo de triunfo
             // si la carta que gana ES triunfo, se tiene que comprobar que su valor es más alto
-            if (cartas[i].palo == triunfo)
+            if (cartas[i]->palo == triunfo)
             {
                 if (cartaQueGanaActualmente->palo != triunfo)
                 {
                     cartasPermitidas.push_back(cartas[i]); // si NO hay triunfo sobre la mesa, puede jugar cualquiera de triunfo
                 }
-                else if (cartas[i].valor > cartaQueGanaActualmente->valor)
+                else if (cartas[i]->valor > cartaQueGanaActualmente->valor)
                 {
                     cartasPermitidas.push_back(cartas[i]); // si hay triunfo Y SE LE SUBE, se juega
                 }
@@ -101,7 +94,7 @@ bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQue
 /**
 * La IA usará esto para lanzar alguna de las cartas que se permiten
 */
-Carta Jugador::lanzaCarta(){
+Carta* Jugador::lanzaCarta(){
     srand(time(NULL));
     return cartasPermitidas[rand()%cartasPermitidas.size()];
 }

@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
 	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
 	C2D_Prepare();
-	//consoleInit(GFX_BOTTOM, NULL);
+	consoleInit(GFX_BOTTOM, NULL);
 
 	// Initialize the render target
 	C3D_RenderTarget* top = C3D_RenderTargetCreate(240, 400, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 		svcBreak(USERBREAK_PANIC);*/
 
 	Partida partida;
+	partida.repartirCartas();
 
 	// Main loop
 	while (aptMainLoop())
@@ -60,11 +61,11 @@ int main(int argc, char *argv[])
 			for (size_t i = 0; i < partida.jugadores[3].cartasPermitidas.size(); i++)
 			{
 				/* code */
-				if(partida.jugadores[3].cartasPermitidas[i].onTouch(touch.px,touch.py)){
-					if(partida.jugadores[3].cartasPermitidas[i].estaMostrandoValor){
-						partida.ocultaValor(&(partida.jugadores[3].cartasPermitidas[i]));
+				if(partida.cartasDeLosJugadores[3*3+i].onTouch(touch.px,touch.py)){
+					if(partida.cartasDeLosJugadores[3*3+i].estaMostrandoValor){
+						partida.ocultaValor(&(partida.cartasDeLosJugadores[3*3+i]));
 					}else{
-						partida.muestraVerdaderoValor(&(partida.jugadores[3].cartasPermitidas[i]));
+						partida.muestraVerdaderoValor(&(partida.cartasDeLosJugadores[3*3+i]));
 					}
 				}
 			}			
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 			}
 		}
 		// Print the touch screen coordinates
-		//printf("\x1b[2;0H%03d; %03d", touch.px, touch.py);
+		printf("\x1b[2;0HCartas repartidas%03d; %03d", partida.cartasDeLosJugadores.size(), touch.py);
 
 		if (kDown & KEY_L & KEY_R || partida.escena==Escena::FINAL)
 			break; // break in order to return to hbmenu
@@ -90,7 +91,8 @@ int main(int argc, char *argv[])
 				C2D_TargetClear(bot, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
 				C2D_SceneBegin(bot);
 			}
-			C2D_DrawSprite(&partida.cartasRepartidas[i].sprite);
+			C2D_DrawSprite(&partida.cartasDeLosJugadores[i].sprite);
+			
 		}
 		C3D_FrameEnd(0);
 
