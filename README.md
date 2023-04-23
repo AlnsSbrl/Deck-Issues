@@ -15,4 +15,6 @@ Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten
 
 (21/04) Se creó la rama [Debug Changes](https://github.com/AlnsSbrl/Deck-Issues/tree/debug-changes) para situar un proyecto de consola en Visual Studio que se usará para encontrar errores de lógica.
 
+(23/04) Se hicieron cambios en las clases Jugador y Partida, así como los métodos usados al repartir cartas para asegurar que cada jugador tiene 3 cartas y que éstas son las mismas (mismo objeto) que las que están en la colección de cartas repartidas en la partida. Estos cambios fueron introducidos porque tras la modularización en distintas clases no se pueden apreciar las cartas en pantalla, como sí ocurría en el primer commit. Estos cambios parecen no haber afectado en el resultado.
+
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
