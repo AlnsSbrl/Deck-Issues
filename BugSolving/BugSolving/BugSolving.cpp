@@ -17,6 +17,12 @@ int main()
 				std::cout << "\n	valor carta: " << carta->valor;
 			}
 		}
+		std::cout << "\nCartas repartidas:\n\n";
+		for (size_t i = 0; i < partida.cartasDeLosJugadores.size(); i++)
+		{
+			std::cout << " | carta: "<<partida.cartasDeLosJugadores[i].valor;
+		}
+		//para ver si cada jugador apuntaba a donde debía simplemente :)
 		system("pause");
 	}
 }
