@@ -12,4 +12,4 @@ Se han encontrado los siguientes errores:
 ## "Tests" hechos
 - > (21/04) comprobación de que todas las cartas de cada jugador tenían valor :x:
 - > (26/04) comprobación de que la partida tenía el número adecuado de jugadores :x:
-- > (26/04) comprobación de que los valores de las cartas de cada jugador eran los mismos que los de la colección de cartas de la partida :heavy_check_mark:
+- > (26/04) comprobación de que las cartas de cada jugador eran las mismas que las de la colección de cartas de la partida :heavy_check_mark:
