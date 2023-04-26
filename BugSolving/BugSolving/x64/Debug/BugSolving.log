@@ -1,11 +1,6 @@
-﻿  BugSolving.cpp
-  Carta.cpp
-  Jugador.cpp
-C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Jugador.cpp(104,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Partida.cpp
+﻿  Partida.cpp
 C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Partida.cpp(8,27): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Partida.cpp(22,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Partida.cpp(27,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
 C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Partida.cpp(82,56): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\BugSolving\Partida.cpp(83,73): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  Generando código...
   BugSolving.vcxproj -> C:\Users\palonso\Documents\GitHub\Deck-Issues\BugSolving\x64\Debug\BugSolving.exe

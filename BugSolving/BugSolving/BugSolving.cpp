@@ -13,8 +13,8 @@ int main()
 		for (size_t i = 0; i < partida.jugadores.size(); i++)
 		{
 			std::cout << "\nJugador número: " << i;
-			for (Carta carta : partida.jugadores[i].cartas) {
-				std::cout << "\n	valor carta: " << carta.valor;
+			for (Carta* carta : partida.jugadores[i].cartas) {
+				std::cout << "\n	valor carta: " << carta->valor;
 			}
 		}
 		system("pause");

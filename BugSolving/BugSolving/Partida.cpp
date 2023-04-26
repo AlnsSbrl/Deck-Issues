@@ -10,47 +10,48 @@ Partida::Partida() {
     numImages = 40;
     escena = INICIO;
     playerToPlay = 3;
-    for (size_t i = 0; i < 4; i++)
+    for (size_t i = 0; i <= 12; i++)
     {
-        Jugador jug;
+        Carta carta;
+        cartasDeLosJugadores.push_back(carta);
+    }
+    for (size_t i = 0; i < 4; i++) //aqui el contador contaba hasta el 3 (sin incluir)......basicamente dando OTRA VEZ un indexoutofbounds
+    {
+        Jugador jug(&cartasDeLosJugadores[3*i], &cartasDeLosJugadores[3 * i+1], &cartasDeLosJugadores[3 * i+2]);
         jugadores.push_back(jug);
     }
 }
 
 //inicializa el juego, limpiando las posibles colecciones que tengan cartas (las que se han repartido previamente y las de los jugadores)
 void Partida::repartirCartas() {
+
     srand(time(NULL));
     cartasRepartidas.clear();
-    for (size_t i = 0; i < 4; i++)
-    {
-        jugadores[i].nuevaMano(); //genera una nueva mano de 3 cartas, sin asignar
-    }
 
-    Carta cartaTriunfo;
-    cartaTriunfo.setValor((rand() % numImages - 1) + 1);
-    cartasRepartidas.push_back(cartaTriunfo);
-    triunfo = cartaTriunfo.palo;
+    this->cartaTriunfo=&(cartasDeLosJugadores[12]);
+    this->cartaTriunfo->setValor((rand() % numImages - 1) + 1);
+    cartasRepartidas.push_back(cartaTriunfo->valor);
 
     for (size_t i = 0; i < CARTAS_TOTALES; i++)
     {
-        Carta* carta = &(jugadores[i / 3].cartas[i % 3]);
-        //TODO: la fórmula anterior hacía que el último player no tuviese ninguna carta
-        //(asignaba 4 cartas a 3 jugadores, eso generaba problemas en el mainLoop al hacer la comprobación de si se toca la carta del player, que, casualmente, era Jugador[3]
+        Carta* carta = (jugadores[i / 3].cartas[i % 3]); //veremos aqui tambien puede dar fallo
+        
         std::cout << "\njugador num:" << i / 3;
         std::cout << "\ncarta de su mano num: " << i % 3;
+
         bool yaSeRepartioEsaCarta;
         do {
             yaSeRepartioEsaCarta = false;
             carta->setValor((rand() % (numImages - 1)) + 1);
             for (size_t i = 0; i < cartasRepartidas.size(); i++)
             {
-                if (cartasRepartidas[i].valor == carta->valor) {
+                if (cartasRepartidas[i] == carta->valor) {
                     yaSeRepartioEsaCarta = true;
                     break;
                 }
             }
         } while (yaSeRepartioEsaCarta);
-        cartasRepartidas.push_back(*carta);
+        cartasRepartidas.push_back(carta->valor);
 
         switch (i)
         {

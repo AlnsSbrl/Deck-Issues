@@ -8,8 +8,9 @@ enum Escena { INICIO, REPARTO_INICIAL, MUEVE_CPU1, MUEVE_CPU2, MUEVE_CPU3, MUEVE
 class Partida {
 public:
     std::vector<Jugador> jugadores;
-    std::vector<Carta> cartasRepartidas;
-    Palo triunfo;
+    std::vector<Carta> cartasDeLosJugadores;
+    std::vector<size_t> cartasRepartidas;
+    Carta* cartaTriunfo;
     size_t playerThatShuffled;
     size_t playerToPlay;
     size_t escena;
