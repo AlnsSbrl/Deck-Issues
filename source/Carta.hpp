@@ -1,3 +1,4 @@
+#pragma once
 #include <citro2d.h>
 #include <citro3d.h>
 #include <3ds.h>
@@ -5,9 +6,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
-
-#ifndef CARTA_H
-#define CARTA_H
 
 enum class Palo {OROS,COPAS,ESPADAS,BASTOS};
 
@@ -25,4 +23,3 @@ public:
 private:
     void AsignaPalo();
 };
-#endif

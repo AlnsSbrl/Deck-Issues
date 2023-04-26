@@ -1,14 +1,5 @@
-#include <citro2d.h>
-#include <citro3d.h>
-#include <3ds.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#pragma once
 #include "Carta.hpp"
-#include <vector>
-
-#ifndef JUGADOR_H
-#define JUGADOR_H
 
 class Jugador
 {
@@ -22,5 +13,3 @@ public:
     Jugador(Carta* carta, Carta* carta2, Carta* carta3);
     Jugador();
 };
-
-#endif

@@ -6,7 +6,7 @@
 #include <time.h>
 #include <vector>
 #include "Partida.hpp"
-
+/*
 #define MAX_SPRITES 12
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
@@ -14,13 +14,13 @@
 	(GX_TRANSFER_FLIP_VERT(0) | GX_TRANSFER_OUT_TILED(0) | GX_TRANSFER_RAW_COPY(0) | \
 	GX_TRANSFER_IN_FORMAT(GX_TRANSFER_FMT_RGBA8) | GX_TRANSFER_OUT_FORMAT(GX_TRANSFER_FMT_RGB8) | \
 	GX_TRANSFER_SCALING(GX_TRANSFER_SCALE_NO))
-
+*/
 
 
 static C2D_SpriteSheet spriteSheet; 
 static Carta sprites[MAX_SPRITES];
 static size_t numSprites = MAX_SPRITES / 2;
-static std::vector<size_t> cartasRepartidas;
+//static std::vector<size_t> cartasRepartidas;
 //---------------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
 		hidScanInput();
 		// hidKeysDown returns information about which buttons have been just pressed (and they weren't in the previous frame)
 		u32 kDown = hidKeysDown();
-
 		touchPosition touch;
 		// Read the touch screen coordinates
 		hidTouchRead(&touch);
@@ -77,12 +76,13 @@ int main(int argc, char *argv[])
 		// Print the touch screen coordinates
 		printf("\x1b[2;0HCartas repartidas%03d; %03d", partida.cartasDeLosJugadores.size(), touch.py);
 
-		if (kDown & KEY_L & KEY_R || partida.escena==Escena::FINAL)
+		if (kDown & KEY_L & KEY_R || partida.escena==Escena::FINAL){
 			break; // break in order to return to hbmenu
-
+		}
+		partida.dibujaEscena();
 		//printf("\x1b[1;1HCartas: %zu/%u\x1b[K", numSprites, MAX_SPRITES);
 
-		C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+		/*C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 		C2D_TargetClear(top, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
 		C2D_SceneBegin(top);
 		for (size_t i = 0; i < MAX_SPRITES; i++)
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
 			C2D_DrawSprite(&partida.cartasDeLosJugadores[i].sprite);
 			
 		}
-		C3D_FrameEnd(0);
+		C3D_FrameEnd(0);*/
 
 		// Flush and swap framebuffers
 		// gfxFlushBuffers();

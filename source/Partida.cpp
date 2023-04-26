@@ -7,6 +7,7 @@
 
 
 
+
 Partida::Partida(){
     spriteSheet = C2D_SpriteSheetLoad("romfs:/gfx/sprites.t3x");
     if (!spriteSheet)
@@ -22,12 +23,16 @@ Partida::Partida(){
     }
     
 
-    for (size_t i = 0; i < 3; i++)
+    for (size_t i = 0; i < 4; i++)
     {
         Jugador jug(&cartasDeLosJugadores[3*i], &cartasDeLosJugadores[3*i+1], &cartasDeLosJugadores[3*i+2]);
         jugadores.push_back(jug);
     }
-    
+    // Initialize the render target
+	top = C3D_RenderTargetCreate(240, 400, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
+	C3D_RenderTargetSetOutput(top, GFX_TOP, GFX_LEFT, DISPLAY_TRANSFER_FLAGS);
+	bot = C3D_RenderTargetCreate(240, 320, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
+	C3D_RenderTargetSetOutput(bot, GFX_BOTTOM, GFX_LEFT, DISPLAY_TRANSFER_FLAGS);
 }
 
 //inicializa el juego, limpiando las posibles colecciones que tengan cartas (las que se han repartido previamente y las de los jugadores)
@@ -112,4 +117,24 @@ void Partida::ocultaValor(Carta* carta){
 
 void Partida::avanzaEscena(){
     
+}
+
+//todo hacer esto dependiente del enum de la escena 
+//y luego hacer una funcion especifica para cada escena donde se manejen qué cartas se dibujan dónde
+void Partida::dibujaEscena(){
+    C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+	C2D_TargetClear(top, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
+	C2D_SceneBegin(top);
+    //switch(escena)
+		for (size_t i = 0; i < MAX_SPRITES; i++)
+		{
+			if(i==9){
+				C2D_TargetClear(bot, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
+				C2D_SceneBegin(bot);
+			}
+			C2D_DrawSprite(&this->cartasDeLosJugadores[i].sprite);
+			
+		}
+    //endswitch
+	C3D_FrameEnd(0);
 }
