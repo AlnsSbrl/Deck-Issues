@@ -1,6 +1,5 @@
 #include "Carta.hpp"
 
-//constructor
 Carta::Carta(size_t valor, float px1, float px2,float py1,float py2, C2D_Sprite spr){
      this->valor=valor;
      this->px1=px1;
@@ -46,5 +45,7 @@ void Carta::AsignaPalo()
 
 //detecta si se toca dentro de la carta
 bool Carta::onTouch(float posx,float posy){
-     return posx<=px1&&posx>=px2&&posy<=py1&&posy>=py2;
+     return posx>=px1&&posx<=px2&&posy>=py1&&posy<=py2;
 }
+//por el momento la funcion onTouch no parece funcionar
+//...pensandolo un poco NORMAL, px1 es menor que px2 entonces es imposible que posx cumpla ambas condiciones
