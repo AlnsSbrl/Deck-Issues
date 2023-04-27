@@ -17,4 +17,6 @@ Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten
 
 (23/04) Se hicieron cambios en las clases Jugador y Partida, así como los métodos usados al repartir cartas para asegurar que cada jugador tiene 3 cartas y que éstas son las mismas (mismo objeto) que las que están en la colección de cartas repartidas en la partida. Estos cambios fueron introducidos porque tras la modularización en distintas clases no se pueden apreciar las cartas en pantalla, como sí ocurría en el primer commit. Estos cambios parecen no haber afectado en el resultado.
 
+(27/04) Tras haber averiguado que los bugs que impedían ver algo por pantalla al ejecutar el archivo `.3dsx` se debían a una fórmula y un bucle mal hechos, se ha seguido con el desarrollo de las clases del juego. Se ha introducido la clase base `InputHandler`, que tiene funciones para las distintas combinaciones de teclas que se pretenden emplear en todo el juego. También se ha creado la clase base `Escena`, que tendrá los contenidos que se quieran representar en esa escena a su disposición. Cada escena tendrá su inputhandler y se aprovechará el polimorfismo para poder ir cambiando de escenas y de mapeos de botones con facilidad.
+
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
