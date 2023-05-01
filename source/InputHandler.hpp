@@ -11,7 +11,8 @@ class InputHandler
 public:
     InputHandler();
     InputHandler(Escena* escena);
-    //necesita como referencia la escena que gestiona, para poder modificar una booleana para cambiar de escena (igual podría haber puesto la booleana DENTRO de inputhandler...por qué no lo pensé antes? quién sabe)
+    //TODO: que la escena NO contenga inputhandler. Inputhandler será un parámetro de la clase partida, así no se incluyen entre sí
+    //el inputhandler debería poder acceder a la escena para llamar a funciones específicas con cada input
     Escena* escena;
     touchPosition touch;
     void gestionaInputs();
@@ -20,9 +21,9 @@ public:
     virtual void onRightPress();
     virtual void onUpPress();
     virtual void onA_ButtonPress();
-    virtual void onB_buttonPress();
-    virtual void onX_buttonPress();
-    virtual void onY_buttonPress();
+    virtual void onB_ButtonPress();
+    virtual void onX_ButtonPress();
+    virtual void onY_ButtonPress();
     virtual void onTouch();
     virtual void onLRSelect_buttonsPress()final; //esto será para terminar la app I guess
     virtual void onStartPress();

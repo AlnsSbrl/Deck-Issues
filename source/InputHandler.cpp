@@ -16,15 +16,15 @@ void InputHandler::gestionaInputs()
     }
     if (KEY_B & kDown)
     {
-        onB_buttonPress();
+        onB_ButtonPress();
     }
     if (KEY_X & kDown)
     {
-        onX_buttonPress();
+        onX_ButtonPress();
     }
     if (KEY_Y & kDown)
     {
-        onY_buttonPress();
+        onY_ButtonPress();
     }
     if (KEY_L & KEY_R & KEY_SELECT & kDown)
     {
@@ -75,13 +75,13 @@ void InputHandler::onUpPress(){
 void InputHandler::onA_ButtonPress(){
 
 };
-void InputHandler::onB_buttonPress(){
+void InputHandler::onB_ButtonPress(){
 
 };
-void InputHandler::onX_buttonPress(){
+void InputHandler::onX_ButtonPress(){
 
 };
-void InputHandler::onY_buttonPress(){
+void InputHandler::onY_ButtonPress(){
 
 };
 void InputHandler::onTouch(){

@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
 	Partida partida;
-	partida.repartirCartas(); //igual cambiar esto a una escena
+	//partida.repartirCartas(); //igual cambiar esto a una escena
 	partida.empiezaPartida();
 		// Flush and swap framebuffers
 		// gfxFlushBuffers();

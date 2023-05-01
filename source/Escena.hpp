@@ -10,12 +10,13 @@ class Escena
 public:
     Escena();
     //~Escena();
-    InputHandler inputHandler;
+    InputHandler inputHandler; //El makefile falla aquí, ya que inputhandler depende de escena.....ya lo solucionaré :)
     TipoEscena numEscena; //representa a ESTA escena
     TipoEscena nuevaEscena; //escena a la que CAMBIA al terminar 
     bool cambiaEscena;
     virtual void dibuja(C3D_RenderTarget* topScreen,C3D_RenderTarget* bottomScreen);
     virtual void actualizaEscena();
+    virtual void terminaEscena();
 };
 
 
