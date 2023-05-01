@@ -19,4 +19,7 @@ Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten
 
 (27/04) Tras haber averiguado que los bugs que impedían ver algo por pantalla al ejecutar el archivo `.3dsx` se debían a una fórmula y un bucle mal hechos, se ha seguido con el desarrollo de las clases del juego. Se ha introducido la clase base `InputHandler`, que tiene funciones para las distintas combinaciones de teclas que se pretenden emplear en todo el juego. También se ha creado la clase base `Escena`, que tendrá los contenidos que se quieran representar en esa escena a su disposición. Cada escena tendrá su inputhandler y se aprovechará el polimorfismo para poder ir cambiando de escenas y de mapeos de botones con facilidad.
 
+(02/05) Se han creado dos escenas y dos inputhandlers con el objetivo de tener una pantalla principal que al clickarla (o al pulsar `A` o `START`) nos lleve a una escena donde se repartan las cartas. En esta escena si se pulsa `START` se volverían a repartir las cartas, mientras que si se pulsa `B` se volvería a la pantalla principal. Esta sería la versión para comprobar la funcionalidad básica del juego, pero por un despiste con los includes no se ha podido generar el archivo `.3dsx` para probarlo (la clase `Escena` incluye a `Inputhandler`...pero `Inputhandler` a la vez también incluye a `Escena`...:thumbsup::thumbsup:)
+
+
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
