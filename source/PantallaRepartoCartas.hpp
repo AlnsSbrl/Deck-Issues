@@ -24,6 +24,8 @@ public:
     PantallaRepartoCartas(C2D_SpriteSheet* spriteSheet);
     void dibuja(C3D_RenderTarget *topScreen, C3D_RenderTarget *bottomScreen) override;
     void actualizaEscena() override;
+    void terminaEscena()override;
+    void terminaTurno();
     void repartirCartas(); //TODO-> asignar el que reparte++ y playerToPlay accordingly
     void muestraVerdaderoValor(Carta* carta);
     void ocultaValor(Carta* carta);

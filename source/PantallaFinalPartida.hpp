@@ -6,7 +6,7 @@
 class PantallaFinalPartida: public Escena{
 public:
     std::vector<Boton> botones;
-    std::vector<Jugador>* jugadores;
-    PantallaFinalPartida(std::vector<Jugador>* xogadors);
-    bool onTouch(float posx,float posy); //igual ponerselo a una clase pequeña but idk
+    C2D_Image topImage;
+    C2D_Image bottomImage;
+    PantallaFinalPartida(bool didPlayerWin);
 };

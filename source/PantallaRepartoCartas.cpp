@@ -55,12 +55,17 @@ void PantallaRepartoCartas::actualizaEscena()
             {
                 jugadores[playerToPlay].lanzaCarta();
             }
-            
         }
-        setNextPlayerToPlay();
-        turno++;
+        terminaTurno();
     }
-    if(turno>=jugadores.size()){
+}
+
+void PantallaRepartoCartas::terminaTurno()
+{
+    setNextPlayerToPlay();
+    turno++;
+    if (turno >= jugadores.size())
+    {
         finalizaBaza();
     }
 }
@@ -139,19 +144,25 @@ void PantallaRepartoCartas::finalizaBaza()
         if (jugadores[i].cartaJugada == this->cartaGanadora)
         {
             jugadores[i].hasWon = true; // no lo asigno directamente al boolean del if porque son 3 rondas, puede haber 3 ganadores
-            playerToPlay=i;
+            playerToPlay = i;
         }
+        jugadores[i].cartaJugada->isAvailableToPlay=false;
         // TODO jugadores[i].cartaJugada.CAMBIAPOSICION(coordenadas del jugador que ha ganado en este turno)
         // todo: cambio en todas las cartas jugadas zzz
-    }
-    turno=0;
+    }   
+    turno = 0;
     for (size_t i = 0; i < jugadores[i].cartas.size(); i++)
     {
-        if(jugadores[i].cartas[i]->isAvailableToPlay){
-            return;
+        if (jugadores[i].cartas[i]->isAvailableToPlay)
+        {
+            return; //aun quedan cartas disponibles, se sigue jugando
         }
     }
-    this->terminaEscena(); 
+    this->terminaEscena();
+}
+
+void PantallaRepartoCartas::terminaEscena(){
+
 }
 
 void PantallaRepartoCartas::setNextPlayerToPlay()
@@ -173,23 +184,28 @@ void PantallaRepartoCartas::setNextPlayerToShuffle()
     this->setNextPlayerToPlay();
 };
 
+// permite conocer si la carta seleccionada se puede jugar en la partida. De ser cierto también comprueba si sería la nueva carta ganadora
+bool PantallaRepartoCartas::juegaCartaJugador(Carta *cartaSeleccionada)
+{
 
-//permite conocer si la carta seleccionada se puede jugar en la partida. De ser cierto también comprueba si sería la nueva carta ganadora
-bool PantallaRepartoCartas::juegaCartaJugador(Carta* cartaSeleccionada){
+    if (playerToPlay != 3)
+        return false; // no es tu turno de jugar!!
 
-    if(playerToPlay!=3)return false; //no es tu turno de jugar!!
-
-    if(turno==0){
-        jugadores[3].cartaJugada=cartaSeleccionada;
-        this->cartaOpener=cartaSeleccionada;
-        this->cartaGanadora=cartaSeleccionada;
+    if (turno == 0)
+    {
+        jugadores[3].cartaJugada = cartaSeleccionada;
+        this->cartaOpener = cartaSeleccionada;
+        this->cartaGanadora = cartaSeleccionada;
         return true;
     }
-    bool wouldBeWinning= jugadores[3].CalculoCartasPermitidas(cartaOpener,cartaGanadora,cartaTriunfo->palo);
+    bool wouldBeWinning = jugadores[3].CalculoCartasPermitidas(cartaOpener, cartaGanadora, cartaTriunfo->palo);
     for (size_t i = 0; i < jugadores[3].cartasPermitidas.size(); i++)
     {
-        if(jugadores[3].cartasPermitidas[i]==cartaSeleccionada){
-            if(wouldBeWinning) this->cartaGanadora=cartaSeleccionada;
+        if (jugadores[3].cartasPermitidas[i] == cartaSeleccionada)
+        {
+            jugadores[3].cartaJugada = cartaSeleccionada;
+            if (wouldBeWinning)
+                this->cartaGanadora = cartaSeleccionada;
             return true;
         }
     }

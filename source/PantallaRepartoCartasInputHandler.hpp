@@ -11,6 +11,9 @@ public:
     virtual void onTouch()override;
     virtual void onStartPress()override;
     virtual void onB_ButtonPress()override;
+    virtual void onLeftPress() override;
+    virtual void onRightPress() override;
+    virtual void onUpPress() override;
 };
 
 PantallaRepartoCartasInputHandler::PantallaRepartoCartasInputHandler(){
