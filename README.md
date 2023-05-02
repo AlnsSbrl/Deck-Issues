@@ -21,5 +21,7 @@ Ahora mismo el juego solo dispone de una pantalla. Al abrir el juego se reparten
 
 (02/05) Se han creado dos escenas y dos inputhandlers con el objetivo de tener una pantalla principal que al clickarla (o al pulsar `A` o `START`) nos lleve a una escena donde se repartan las cartas. En esta escena si se pulsa `START` se volverían a repartir las cartas, mientras que si se pulsa `B` se volvería a la pantalla principal. Esta sería la versión para comprobar la funcionalidad básica del juego, pero por un despiste con los includes no se ha podido generar el archivo `.3dsx` para probarlo (la clase `Escena` incluye a `Inputhandler`...pero `Inputhandler` a la vez también incluye a `Escena`...:thumbsup::thumbsup:)
 
+(02/05 v2.0 electric boogaloo) Se han expandido las clases que componen el bucle principal del juego, haciendo que los botones del handler avancen la escena, haciendo que cada vez que el usuario presione el botón `A` en la escena de la partida, la IA que tenga el turno realice su acción, mientras que si es el turno del jugador no hace nada. En cambio, si el jugador presiona sobre alguna carta la jugaría ~~suponiendo que el onTouch() funcione~~ si y solo si es su turno de jugar. También se ha empezado a crear el esqueleto básico de la escena que saldrá al terminar la partida, para preguntar si se quiere repetir.
+
 
 <img src=https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif>
