@@ -20,6 +20,7 @@ public:
     C3D_RenderTarget* bot;
     Escena escena;
     C2D_SpriteSheet spriteSheet;
+    InputHandler inputHandler;
     //en una partida se juegan 3 bazas, el ganador de una baza juega la siguiente carta, hasta terminar
     //pero quien echa en la primera baza? pues el siguiente al jugador que repartió las cartas.
     //En este juego se irá rotando, cada 4 partidas el jugador lanzaría la primera carta en la primera baza (esto da bastante ventaja en el juego)

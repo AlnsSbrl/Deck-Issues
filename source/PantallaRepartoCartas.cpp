@@ -23,8 +23,8 @@ PantallaRepartoCartas::PantallaRepartoCartas(C2D_SpriteSheet *spriteSheet)
 
 void PantallaRepartoCartas::dibuja(C3D_RenderTarget *topScreen, C3D_RenderTarget *bottomScreen)
 {
-        C2D_TargetClear(topScreen, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
-            C2D_SceneBegin(topScreen);
+    C2D_TargetClear(topScreen, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
+    C2D_SceneBegin(topScreen);
     for (size_t i = 0; i < CARTAS_TOTALES; i++)
     {
         if (i == 9)
@@ -38,6 +38,31 @@ void PantallaRepartoCartas::dibuja(C3D_RenderTarget *topScreen, C3D_RenderTarget
 
 void PantallaRepartoCartas::actualizaEscena()
 {
+    if (playerToPlay != 3)
+    {
+        if (turno == 0)
+        {
+            this->cartaOpener = jugadores[playerToPlay].lanzaCarta();
+            this->cartaGanadora = cartaOpener;
+        }
+        else
+        {
+            if (jugadores[playerToPlay].CalculoCartasPermitidas(cartaOpener, cartaGanadora, this->cartaTriunfo->palo))
+            {
+                this->cartaGanadora = jugadores[playerToPlay].lanzaCarta();
+            }
+            else
+            {
+                jugadores[playerToPlay].lanzaCarta();
+            }
+            
+        }
+        setNextPlayerToPlay();
+        turno++;
+    }
+    if(turno>=jugadores.size()){
+        finalizaBaza();
+    }
 }
 
 // inicializa el juego, limpiando las posibles colecciones que tengan cartas (las que se han repartido previamente y las de los jugadores)
@@ -52,6 +77,9 @@ void PantallaRepartoCartas::repartirCartas()
     for (size_t i = 0; i < CARTAS_TOTALES; i++)
     {
         Carta *carta = (jugadores[i / 3].cartas[i % 3]);
+        carta->jugadorDeLaCarta = i / 3;
+        carta->isAvailableToPlay = true;
+        jugadores[i / 3].hasWon = false;
         bool yaSeRepartioEsaCarta;
         do
         {
@@ -101,6 +129,71 @@ void PantallaRepartoCartas::repartirCartas()
             break;
         }
     }
+    setNextPlayerToShuffle();
+}
+
+void PantallaRepartoCartas::finalizaBaza()
+{
+    for (size_t i = 0; i < jugadores.size(); i++)
+    {
+        if (jugadores[i].cartaJugada == this->cartaGanadora)
+        {
+            jugadores[i].hasWon = true; // no lo asigno directamente al boolean del if porque son 3 rondas, puede haber 3 ganadores
+            playerToPlay=i;
+        }
+        // TODO jugadores[i].cartaJugada.CAMBIAPOSICION(coordenadas del jugador que ha ganado en este turno)
+        // todo: cambio en todas las cartas jugadas zzz
+    }
+    turno=0;
+    for (size_t i = 0; i < jugadores[i].cartas.size(); i++)
+    {
+        if(jugadores[i].cartas[i]->isAvailableToPlay){
+            return;
+        }
+    }
+    this->terminaEscena(); 
+}
+
+void PantallaRepartoCartas::setNextPlayerToPlay()
+{
+    this->playerToPlay++;
+    if (playerToPlay >= jugadores.size())
+    {
+        this->playerToPlay = 0;
+    }
+};
+
+void PantallaRepartoCartas::setNextPlayerToShuffle()
+{
+    this->playerToShuffle++;
+    if (playerToShuffle >= jugadores.size())
+    {
+        this->playerToShuffle = 0;
+    }
+    this->setNextPlayerToPlay();
+};
+
+
+//permite conocer si la carta seleccionada se puede jugar en la partida. De ser cierto también comprueba si sería la nueva carta ganadora
+bool PantallaRepartoCartas::juegaCartaJugador(Carta* cartaSeleccionada){
+
+    if(playerToPlay!=3)return false; //no es tu turno de jugar!!
+
+    if(turno==0){
+        jugadores[3].cartaJugada=cartaSeleccionada;
+        this->cartaOpener=cartaSeleccionada;
+        this->cartaGanadora=cartaSeleccionada;
+        return true;
+    }
+    bool wouldBeWinning= jugadores[3].CalculoCartasPermitidas(cartaOpener,cartaGanadora,cartaTriunfo->palo);
+    for (size_t i = 0; i < jugadores[3].cartasPermitidas.size(); i++)
+    {
+        if(jugadores[3].cartasPermitidas[i]==cartaSeleccionada){
+            if(wouldBeWinning) this->cartaGanadora=cartaSeleccionada;
+            return true;
+        }
+    }
+    return false;
 }
 // oculta el valor de la carta y el sprite se vuelve el dorso
 void PantallaRepartoCartas::ocultaValor(Carta *carta)

@@ -1,5 +1,4 @@
 #pragma once
-#include "InputHandler.hpp"
 #include <3ds.h>
 #include <citro2d.h>
 #include <citro3d.h>
@@ -10,7 +9,6 @@ class Escena
 public:
     Escena();
     //~Escena();
-    InputHandler inputHandler; //El makefile falla aquí, ya que inputhandler depende de escena.....ya lo solucionaré :)
     TipoEscena numEscena; //representa a ESTA escena
     TipoEscena nuevaEscena; //escena a la que CAMBIA al terminar 
     bool cambiaEscena;

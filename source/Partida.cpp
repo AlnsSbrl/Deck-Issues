@@ -2,6 +2,7 @@
 #include "Partida.hpp"
 #include "PantallaPrincipal.hpp"
 #include "PantallaRepartoCartas.hpp"
+#include "PantallaRepartoCartasInputHandler.hpp"
 
 Partida::Partida()
 {
@@ -10,7 +11,9 @@ Partida::Partida()
         svcBreak(USERBREAK_PANIC);
 
     PantallaPrincipal pantallaPrincipal;
+    PantallaPrincipalInputHandler pHandler;
     this->escena=pantallaPrincipal;
+    this->inputHandler=pHandler;
     //escena.numEscena = INICIO;
     // Initialize the render target
     top = C3D_RenderTargetCreate(240, 400, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
@@ -30,12 +33,16 @@ void Partida::cambiaEscena(TipoEscena nuevaEscena)
         case INICIO:
             PantallaPrincipal pantalla;
             this->escena = pantalla;
+            PantallaPrincipalInputHandler pHandler(&escena);
+            this->inputHandler=pHandler;
             break;
         case REPARTO_INICIAL:
         {
             //por qué necesito poner esto entre corchetes para que compile?? mmm
             PantallaRepartoCartas pantallaRepartoCartas(&spriteSheet);
             this->escena = pantallaRepartoCartas;
+            PantallaRepartoCartasInputHandler pHandler(&pantallaRepartoCartas);//supongo que apuntan al mismo sitio y asi me ahorro el static cast???
+            this->inputHandler = pHandler;
         }
         break;
         // todo rest
@@ -76,7 +83,7 @@ void Partida::empiezaPartida()
         escena.actualizaEscena();
         try
         {
-            escena.inputHandler.gestionaInputs();
+            inputHandler.gestionaInputs();
         }
         catch (std::invalid_argument &e)
         {
