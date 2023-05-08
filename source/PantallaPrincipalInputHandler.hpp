@@ -6,14 +6,12 @@ class PantallaPrincipalInputHandler: public InputHandler{
 
 public:
     PantallaPrincipalInputHandler();
-    PantallaPrincipalInputHandler(PantallaPrincipal* escena);
+    PantallaPrincipalInputHandler(Escena* escena);
     virtual void onA_ButtonPress()override;  
     virtual void onTouch()override;
     virtual void onStartPress()override;
     virtual void onSelectPress()override;
 };
 
-PantallaPrincipalInputHandler::PantallaPrincipalInputHandler(){
 
-};
 

@@ -19,6 +19,7 @@ void PantallaFinalPartidaInputHandler::onB_ButtonPress()
 
 void PantallaFinalPartidaInputHandler::onTouch()
 {
+    InputHandler::onTouch();
     if (PantallaFinalPartida *scn = dynamic_cast<PantallaFinalPartida *>(this->escena))
     {
         for (size_t i = 0; i < scn->botones.size(); i++)

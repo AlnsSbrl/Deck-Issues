@@ -94,7 +94,7 @@ bool Jugador::CalculoCartasPermitidas(Carta *primeraCartaJugada, Carta *cartaQue
 /**
 * La IA usará esto para lanzar alguna de las cartas que se permitan, mientras que el jugador mandará una carta concreta
 */
-Carta* Jugador::lanzaCarta(Carta* cartaSeleccionada=0){
+Carta* Jugador::lanzaCarta(Carta* cartaSeleccionada){
 
     if(cartaSeleccionada!=0){
         for (size_t i = 0; i < cartasPermitidas.size(); i++)

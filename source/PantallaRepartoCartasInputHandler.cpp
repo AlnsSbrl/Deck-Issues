@@ -16,6 +16,7 @@ void PantallaRepartoCartasInputHandler::onA_ButtonPress(){
 };
 
 void PantallaRepartoCartasInputHandler::onTouch(){
+    InputHandler::onTouch();
     if(PantallaRepartoCartas* scn = dynamic_cast<PantallaRepartoCartas*>(this->escena)){
         for (size_t i = 0; i < scn->jugadores[3].cartas.size(); i++)
         {

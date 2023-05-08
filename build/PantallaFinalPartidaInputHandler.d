@@ -1,10 +1,7 @@
-Jugador.o: \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.cpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp \
- C:/devkitPro/libctru/include/citro2d.h \
- C:/devkitPro/libctru/include/citro3d.h \
- C:/devkitPro/libctru/include/c3d/types.h \
+PantallaFinalPartidaInputHandler.o: \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaFinalPartidaInputHandler.cpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaFinalPartidaInputHandler.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp \
  C:/devkitPro/libctru/include/3ds.h \
  C:/devkitPro/libctru/include/3ds/types.h \
  C:/devkitPro/libctru/include/3ds/result.h \
@@ -89,6 +86,10 @@ Jugador.o: \
  C:/devkitPro/libctru/include/3ds/font.h \
  C:/devkitPro/libctru/include/3ds/gdbhio_dev.h \
  C:/devkitPro/libctru/include/3ds/3dslink.h \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp \
+ C:/devkitPro/libctru/include/citro2d.h \
+ C:/devkitPro/libctru/include/citro3d.h \
+ C:/devkitPro/libctru/include/c3d/types.h \
  C:/devkitPro/libctru/include/c3d/maths.h \
  C:/devkitPro/libctru/include/c3d/mtxstack.h \
  C:/devkitPro/libctru/include/c3d/uniforms.h \
@@ -109,12 +110,13 @@ Jugador.o: \
  C:/devkitPro/libctru/include/c2d/spritesheet.h \
  C:/devkitPro/libctru/include/c2d/sprite.h \
  C:/devkitPro/libctru/include/c2d/text.h \
- C:/devkitPro/libctru/include/c2d/font.h
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp:
-C:/devkitPro/libctru/include/citro2d.h:
-C:/devkitPro/libctru/include/citro3d.h:
-C:/devkitPro/libctru/include/c3d/types.h:
+ C:/devkitPro/libctru/include/c2d/font.h \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaFinalPartida.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Boton.hpp
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaFinalPartidaInputHandler.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp:
 C:/devkitPro/libctru/include/3ds.h:
 C:/devkitPro/libctru/include/3ds/types.h:
 C:/devkitPro/libctru/include/3ds/result.h:
@@ -199,6 +201,10 @@ C:/devkitPro/libctru/include/3ds/romfs.h:
 C:/devkitPro/libctru/include/3ds/font.h:
 C:/devkitPro/libctru/include/3ds/gdbhio_dev.h:
 C:/devkitPro/libctru/include/3ds/3dslink.h:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp:
+C:/devkitPro/libctru/include/citro2d.h:
+C:/devkitPro/libctru/include/citro3d.h:
+C:/devkitPro/libctru/include/c3d/types.h:
 C:/devkitPro/libctru/include/c3d/maths.h:
 C:/devkitPro/libctru/include/c3d/mtxstack.h:
 C:/devkitPro/libctru/include/c3d/uniforms.h:
@@ -220,3 +226,7 @@ C:/devkitPro/libctru/include/c2d/spritesheet.h:
 C:/devkitPro/libctru/include/c2d/sprite.h:
 C:/devkitPro/libctru/include/c2d/text.h:
 C:/devkitPro/libctru/include/c2d/font.h:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaFinalPartida.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Boton.hpp:

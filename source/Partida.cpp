@@ -12,10 +12,10 @@ Partida::Partida()
 
     PantallaPrincipal pantallaPrincipal;
     PantallaPrincipalInputHandler pHandler;
-    this->escena=pantallaPrincipal;
-    this->inputHandler=pHandler;
-    //escena.numEscena = INICIO;
-    // Initialize the render target
+    this->escena = pantallaPrincipal;
+    this->inputHandler = pHandler;
+    // escena.numEscena = INICIO;
+    //  Initialize the render target
     top = C3D_RenderTargetCreate(240, 400, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
     C3D_RenderTargetSetOutput(top, GFX_TOP, GFX_LEFT, DISPLAY_TRANSFER_FLAGS);
     bot = C3D_RenderTargetCreate(240, 320, GPU_RB_RGBA8, GPU_RB_DEPTH24_STENCIL8);
@@ -31,22 +31,28 @@ void Partida::cambiaEscena(TipoEscena nuevaEscena)
         switch (nuevaEscena)
         {
         case INICIO:
+        {
+
             PantallaPrincipal pantalla;
             this->escena = pantalla;
             PantallaPrincipalInputHandler pHandler(&escena);
-            this->inputHandler=pHandler;
+            this->inputHandler = pHandler;
             break;
+        }
         case REPARTO_INICIAL:
         {
-            //por qué necesito poner esto entre corchetes para que compile?? mmm
+            // por qué necesito poner esto entre corchetes para que compile?? mmm
             PantallaRepartoCartas pantallaRepartoCartas(&spriteSheet);
             this->escena = pantallaRepartoCartas;
-            PantallaRepartoCartasInputHandler pHandler(&pantallaRepartoCartas);//supongo que apuntan al mismo sitio y asi me ahorro el static cast???
+            PantallaRepartoCartasInputHandler pHandler(&pantallaRepartoCartas); // supongo que apuntan al mismo sitio y asi me ahorro el static cast???
             this->inputHandler = pHandler;
         }
         break;
         // todo rest
         default:
+        {
+            
+        }
             break;
 
             // TipoEscena {INICIO, REPARTO_INICIAL,MUEVE_CPU1,MUEVE_CPU2,MUEVE_CPU3,MUEVE_PLAYER,TERMINA_BAZA,PREGUNTA_SEGUIR,FINAL};
@@ -65,7 +71,7 @@ void Partida::dibujaEscena()
     if (escena.cambiaEscena)
         cambiaEscena(escena.nuevaEscena);
     // switch(escena)
-   
+
     // endswitch
     C3D_FrameEnd(0);
 }

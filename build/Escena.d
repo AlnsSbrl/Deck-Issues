@@ -1,7 +1,6 @@
 Escena.o: \
  C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.cpp \
  C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp \
  C:/devkitPro/libctru/include/3ds.h \
  C:/devkitPro/libctru/include/3ds/types.h \
  C:/devkitPro/libctru/include/3ds/result.h \
@@ -111,7 +110,6 @@ Escena.o: \
  C:/devkitPro/libctru/include/c2d/text.h \
  C:/devkitPro/libctru/include/c2d/font.h
 C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp:
 C:/devkitPro/libctru/include/3ds.h:
 C:/devkitPro/libctru/include/3ds/types.h:
 C:/devkitPro/libctru/include/3ds/result.h:

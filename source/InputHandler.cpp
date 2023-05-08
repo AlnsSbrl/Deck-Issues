@@ -85,7 +85,7 @@ void InputHandler::onY_ButtonPress(){
 
 };
 void InputHandler::onTouch(){
-
+    hidTouchRead(&touch);
 };
 void InputHandler::onStartPress(){
 

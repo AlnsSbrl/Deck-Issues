@@ -2,6 +2,7 @@
 #include "Jugador.hpp"
 #include "Carta.hpp"
 #include "Escena.hpp"
+#include "InputHandler.hpp"
 
 
 

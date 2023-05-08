@@ -1,6 +1,10 @@
 #include "PantallaPrincipalInputHandler.hpp"
 
-PantallaPrincipalInputHandler::PantallaPrincipalInputHandler(PantallaPrincipal* escena){
+PantallaPrincipalInputHandler::PantallaPrincipalInputHandler(){
+
+};
+
+PantallaPrincipalInputHandler::PantallaPrincipalInputHandler(Escena* escena){
     this->escena=escena;
 };
 void PantallaPrincipalInputHandler::onA_ButtonPress(){
@@ -8,6 +12,7 @@ void PantallaPrincipalInputHandler::onA_ButtonPress(){
 };
 
 void PantallaPrincipalInputHandler::onTouch(){
+    InputHandler::onTouch();
     escena->cambiaEscena=true;
 };
 

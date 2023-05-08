@@ -4,6 +4,7 @@
 
 class PantallaPrincipal : public Escena{
 public:
+    PantallaPrincipal();
     C2D_Image topImage;
     C2D_Image bottomImage;
     C2D_Text bottomText;
