@@ -1,11 +1,13 @@
 #include "InputHandler.hpp"
-InputHandler::InputHandler(){
 
-}
-InputHandler::InputHandler(Escena* escena) 
+InputHandler::InputHandler()
 {
 }
-void InputHandler::gestionaInputs()
+InputHandler::InputHandler(Escena *escena)
+{
+    this->escena = escena;
+}
+bool InputHandler::gestionaInputs()
 {
     hidScanInput();
     u32 kDown = hidKeysDown();
@@ -29,6 +31,7 @@ void InputHandler::gestionaInputs()
     if (KEY_L & KEY_R & KEY_SELECT & kDown)
     {
         onLRSelect_buttonsPress();
+        return true;
     }
     if (KEY_DLEFT & kDown || KEY_CPAD_LEFT & kDown)
     {
@@ -58,41 +61,72 @@ void InputHandler::gestionaInputs()
     {
         onTouch();
     }
+    return false;
 }
 
-void InputHandler::onDownPress(){
+void InputHandler::onLeftPress()
+{
 
-};
-void InputHandler::onLeftPress(){
+    if (escena->juegaCartaJugador(escena->jugadores[3].cartas[0]))
+    {
+        escena->jugadores[3].lanzaCarta(escena->jugadores[3].cartaJugada);
+        escena->actualizaEscena(MUEVE_PLAYER);
+        escena->terminaTurno();
+    }
+}
 
-};
-void InputHandler::onRightPress(){
+// haria lo mismo que el onTouch() seleccionando la carta de la derecha
+void InputHandler::onRightPress()
+{
 
-};
-void InputHandler::onUpPress(){
+    if (escena->juegaCartaJugador(escena->jugadores[3].cartas[2]))
+    {
+        escena->jugadores[3].lanzaCarta(escena->jugadores[3].cartaJugada);
+        escena->actualizaEscena(MUEVE_PLAYER);
+        escena->terminaTurno();
+    }
+}
 
-};
-void InputHandler::onA_ButtonPress(){
+// haria lo mismo que el onTouch() seleccionando la carta del medio
+void InputHandler::onUpPress()
+{
 
+    if (escena->juegaCartaJugador(escena->jugadores[3].cartas[1]))
+    {
+        escena->jugadores[3].lanzaCarta(escena->jugadores[3].cartaJugada);
+        escena->actualizaEscena(MUEVE_PLAYER);
+        escena->terminaTurno();
+    }
+}
+void InputHandler::onA_ButtonPress()
+{
+    
+    escena->actualizaEscena(MUEVE_CPU);
 };
-void InputHandler::onB_ButtonPress(){
 
-};
-void InputHandler::onX_ButtonPress(){
-
-};
-void InputHandler::onY_ButtonPress(){
-
-};
-void InputHandler::onTouch(){
+void InputHandler::onTouch()
+{
     hidTouchRead(&touch);
-};
-void InputHandler::onStartPress(){
 
+    for (size_t i = 0; i < escena->jugadores[3].cartas.size(); i++)
+    {
+        if (escena->jugadores[3].cartas[i]->onTouch(this->touch.px, this->touch.py))
+        {
+            if (escena->juegaCartaJugador(escena->jugadores[3].cartas[i]))
+            {
+                escena->jugadores[3].lanzaCarta(escena->jugadores[3].cartaJugada);
+                escena->actualizaEscena(MUEVE_PLAYER);
+                escena->terminaTurno();
+            }
+        };
+        // todo: hacer prueba para ver si me gestiona esto correctamente :)
+    }
 };
-void InputHandler::onSelectPress(){
+void InputHandler::onStartPress()
+{
+    escena->repartirCartas();
+}
 
-};
 void InputHandler::onLRSelect_buttonsPress()
 {
     throw std::invalid_argument("saliendo del programa");
@@ -100,3 +134,20 @@ void InputHandler::onLRSelect_buttonsPress()
     // y al final el ejemplo de MS hacia un "import static" con el std.....
 }
 
+void InputHandler::onX_ButtonPress(){
+
+};
+void InputHandler::onY_ButtonPress(){
+
+};
+void InputHandler::onSelectPress(){
+
+};
+void InputHandler::onB_ButtonPress()
+{
+    /*escena->cambiaEscena=true;
+    escena->nuevaEscena=INICIO;*/
+}
+void InputHandler::onDownPress(){
+
+};

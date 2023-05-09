@@ -1,13 +1,14 @@
 #pragma once
+
 #include <3ds.h>
 #include <stdexcept>
 #include <limits>
 #include <iostream>
 #include "Escena.hpp"
+
 class InputHandler
 {
-
-    
+  
 public:
     InputHandler();
     InputHandler(Escena* escena);
@@ -15,7 +16,7 @@ public:
     //el inputhandler debería poder acceder a la escena para llamar a funciones específicas con cada input
     Escena* escena;
     touchPosition touch;
-    void gestionaInputs();
+    bool gestionaInputs();
     virtual void onDownPress();
     virtual void onLeftPress();
     virtual void onRightPress();

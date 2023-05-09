@@ -2,9 +2,6 @@
 
 
 PantallaPrincipal::PantallaPrincipal(){
-    numEscena=INICIO;
-    nuevaEscena=REPARTO_INICIAL;
-    cambiaEscena=false;
     textBuffer= C2D_TextBufNew(4096);
     font=C2D_FontLoad("romfs:/attfshingoproultra.bcfnt"); //todo: cargar mi propia fuente Y modificar el MAKEFILE para poder generar ese archivo a raiz de un ttf
     C2D_TextFontParse(&bottomText,font,textBuffer,"Toca para continuar");
