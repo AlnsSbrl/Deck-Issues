@@ -35,7 +35,7 @@ void Partida::repartirCartas() {
     for (size_t i = 0; i < CARTAS_TOTALES; i++)
     {
         Carta* carta = (jugadores[i / 3].cartas[i % 3]); //veremos aqui tambien puede dar fallo
-        
+        carta->isAvailableToPlay = true;
         std::cout << "\njugador num:" << i / 3;
         std::cout << "\ncarta de su mano num: " << i % 3;
 

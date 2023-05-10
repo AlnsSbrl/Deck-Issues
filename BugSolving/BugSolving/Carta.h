@@ -13,6 +13,7 @@ public:
 	Palo palo;
 	bool onTouch(float posx, float posy);
 	bool estaMostrandoValor;
+	bool isAvailableToPlay;
 	Carta();
 	void setValor(size_t valor);
 private:

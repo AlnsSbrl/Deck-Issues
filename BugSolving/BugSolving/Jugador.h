@@ -9,7 +9,7 @@ public:
     Carta cartaJugada;
     bool isPlayer;
     bool CalculoCartasPermitidas(Carta* primeraCartaJugada, Carta* cartaQueGanaActualmente, Palo triunfo);
-    Carta* lanzaCarta();
+    Carta* lanzaCarta(Carta* carta = 0);
     Jugador(Carta* carta, Carta* carta2, Carta* carta3);
     Jugador();
 };

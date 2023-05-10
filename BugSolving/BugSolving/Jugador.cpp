@@ -1,5 +1,6 @@
 #include "Jugador.h"
 #include <time.h>
+#include <iostream>
 Jugador::Jugador() {
 
 }
@@ -17,7 +18,7 @@ bool Jugador::CalculoCartasPermitidas(Carta* primeraCartaJugada, Carta* cartaQue
     // la primera regla es asistir al palo de la primera carta jugada
     for (size_t i = 0; i < cartas.size(); i++)
     {
-        if (cartas[i]->palo == primeraCartaJugada->palo)
+        if (cartas[i]->palo == primeraCartaJugada->palo && cartas[i]->isAvailableToPlay)
         {
             cartasPermitidas.push_back(cartas[i]);
         }
@@ -60,7 +61,7 @@ bool Jugador::CalculoCartasPermitidas(Carta* primeraCartaJugada, Carta* cartaQue
         {
             // si la carta que gana NO es triunfo, se añaden todas las que sean del palo de triunfo
             // si la carta que gana ES triunfo, se tiene que comprobar que su valor es más alto
-            if (cartas[i]->palo == triunfo)
+            if (cartas[i]->palo == triunfo && cartas[i]->isAvailableToPlay)
             {
                 if (cartaQueGanaActualmente->palo != triunfo)
                 {
@@ -75,8 +76,15 @@ bool Jugador::CalculoCartasPermitidas(Carta* primeraCartaJugada, Carta* cartaQue
 
         if (cartasPermitidas.size() == 0)
         {
-            // devuelve cualquiera de las que tenga
-            cartasPermitidas = cartas;
+            // antes devolvía TODAS las cartas, es decir,
+            // cuando solo quedaba una carta posible para jugar es muy probable que no se cumpla ninguna condición previa
+            // y por tanto devolvía como posibles TODAS las cartas, no las permitidas para jugar (aka que no se han jugado todavia)
+
+            for (Carta* carta : cartas) {
+                if (carta->isAvailableToPlay) {
+                    cartasPermitidas.push_back(carta);
+                }
+            }
             return false;
         }
         else
@@ -87,10 +95,26 @@ bool Jugador::CalculoCartasPermitidas(Carta* primeraCartaJugada, Carta* cartaQue
 }
 
 
+
 /**
 * La IA usará esto para lanzar alguna de las cartas que se permiten
 */
-Carta* Jugador::lanzaCarta() {
+Carta* Jugador::lanzaCarta(Carta* cartaSeleccionada) {
+
+    if (cartaSeleccionada != 0) {
+        for (size_t i = 0; i < cartasPermitidas.size(); i++)
+        {
+            if (cartaSeleccionada == cartasPermitidas[i]) {
+                //C2D_SpriteSetPos(&cartaSeleccionada->sprite, this->posXLanzamiento, this->posYLanzamiento);
+                //probablemente pueda reducir el codigo aqui but idgaf
+                return cartaSeleccionada; //esta comprobacion la hago PORSIACASO, pero realmente no haría falta por cómo la llamo
+            }
+        }
+    }
     srand(time(NULL));
-    return cartasPermitidas[rand() % cartasPermitidas.size()];
+    Carta* carta = cartasPermitidas[rand() % cartasPermitidas.size()];
+    carta->isAvailableToPlay=false; //esto se lo cambio en cuanto termine la baza (para que pueda seguir dibujandolo¿?)
+    std::cout << "\n	 cartas lanzada: " << carta->valor;
+    //C2D_SpriteSetPos(&carta->sprite, this->posXLanzamiento, this->posYLanzamiento);
+    return carta;
 }

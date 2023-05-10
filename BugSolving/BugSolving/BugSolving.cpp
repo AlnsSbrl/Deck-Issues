@@ -8,23 +8,38 @@ int main()
 {
 	Partida partida;
 	bool seguir = true;
-	while (seguir) {
-		partida.repartirCartas();
-		for (size_t i = 0; i < partida.jugadores.size(); i++)
-		{
-			std::cout << "\nJugador número: " << i;
-			for (Carta* carta : partida.jugadores[i].cartas) {
-				std::cout << "\n	valor carta: " << carta->valor;
-			}
-		}
-		std::cout << "\nCartas repartidas:\n\n";
-		for (size_t i = 0; i < partida.cartasDeLosJugadores.size(); i++)
-		{
-			std::cout << " | carta: "<<partida.cartasDeLosJugadores[i].valor;
-		}
-		//para ver si cada jugador apuntaba a donde debía simplemente :)
-		system("pause");
+	partida.repartirCartas();
+	partida.jugadores[0].cartas[0]->setValor(3);
+	partida.jugadores[0].cartas[1]->setValor(6);
+	partida.jugadores[0].cartas[2]->setValor(12);
+
+	for (Carta* carta : partida.jugadores[0].cartas) {
+		std::cout << "\n	valor carta: " << carta->valor;
 	}
+
+	Carta triunfo;
+	triunfo.setValor(11);
+	Carta cartaGanadora;
+	cartaGanadora.setValor(32);
+
+	/*aqui se pueden configurar distintas combinaciones de cartas para ver si se siguen las normas tm*/
+	partida.jugadores[0].CalculoCartasPermitidas(&cartaGanadora, &triunfo, triunfo.palo);
+	for (Carta* carta : partida.jugadores[0].cartasPermitidas) {
+		std::cout << "\n	 cartas permitidas: " << carta->valor;
+	}
+	partida.jugadores[0].lanzaCarta();
+	partida.jugadores[0].CalculoCartasPermitidas(&triunfo, &triunfo, triunfo.palo);
+	for (Carta* carta : partida.jugadores[0].cartasPermitidas) {
+		std::cout << "\n	 cartas permitidas: " << carta->valor;
+	}
+	partida.jugadores[0].lanzaCarta();
+	partida.jugadores[0].CalculoCartasPermitidas(&triunfo, &triunfo, triunfo.palo);
+	for (Carta* carta : partida.jugadores[0].cartasPermitidas) {
+		std::cout << "\n	 cartas permitidas: " << carta->valor;
+	}
+	partida.jugadores[0].lanzaCarta();
+	partida.jugadores[0].CalculoCartasPermitidas(&triunfo, &triunfo, triunfo.palo);
+	std::cout << "\n	 cartas que se pueden jugar: " << partida.jugadores[0].cartasPermitidas.size();
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
