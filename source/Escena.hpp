@@ -28,7 +28,6 @@ public:
     int playerToShuffle;
     int playerToPlay;
     size_t turno;
-    bool cambiaEscena;
     bool seHaTerminadoLaBaza;
     //void operator++(int playerToShuffle);//queria ver de usar este overload para controlar playerToPlay y playerThatShuffled
     C2D_SpriteSheet* spriteSheet;//que apunte al de Partida

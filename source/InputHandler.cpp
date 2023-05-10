@@ -129,7 +129,7 @@ void InputHandler::onStartPress()
 
 void InputHandler::onLRSelect_buttonsPress()
 {
-    throw std::invalid_argument("saliendo del programa");
+    //throw std::invalid_argument("saliendo del programa");
     // yo buscando durante 20 min como lanzar una excepcion...
     // y al final el ejemplo de MS hacia un "import static" con el std.....
 }

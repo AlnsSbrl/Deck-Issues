@@ -1,8 +1,8 @@
 Partida.o: \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Partida.cpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Partida.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp \
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Partida.cpp \
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Partida.hpp \
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Jugador.hpp \
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Carta.hpp \
  C:/devkitPro/libctru/include/citro2d.h \
  C:/devkitPro/libctru/include/citro3d.h \
  C:/devkitPro/libctru/include/c3d/types.h \
@@ -111,15 +111,11 @@ Partida.o: \
  C:/devkitPro/libctru/include/c2d/sprite.h \
  C:/devkitPro/libctru/include/c2d/text.h \
  C:/devkitPro/libctru/include/c2d/font.h \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaPrincipal.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaPrincipalInputHandler.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaRepartoCartas.hpp \
- C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaRepartoCartasInputHandler.hpp
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Partida.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp:
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/InputHandler.hpp \
+ C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Escena.hpp
+C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Partida.hpp:
+C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Jugador.hpp:
+C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Carta.hpp:
 C:/devkitPro/libctru/include/citro2d.h:
 C:/devkitPro/libctru/include/citro3d.h:
 C:/devkitPro/libctru/include/c3d/types.h:
@@ -228,9 +224,5 @@ C:/devkitPro/libctru/include/c2d/spritesheet.h:
 C:/devkitPro/libctru/include/c2d/sprite.h:
 C:/devkitPro/libctru/include/c2d/text.h:
 C:/devkitPro/libctru/include/c2d/font.h:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Escena.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/InputHandler.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaPrincipal.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaPrincipalInputHandler.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaRepartoCartas.hpp:
-C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/PantallaRepartoCartasInputHandler.hpp:
+C:/Users/palonso/Documents/GitHub/Deck-Issues/source/InputHandler.hpp:
+C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Escena.hpp:
