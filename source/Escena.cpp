@@ -1,7 +1,7 @@
 #include "Escena.hpp"
 
-Escena::Escena(){
-    
+Escena::Escena()
+{
 }
 
 void Escena::dibuja(C3D_RenderTarget *topScreen, C3D_RenderTarget *bottomScreen)
@@ -9,14 +9,18 @@ void Escena::dibuja(C3D_RenderTarget *topScreen, C3D_RenderTarget *bottomScreen)
     C2D_TargetClear(topScreen, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
     C2D_SceneBegin(topScreen);
     // aqui hacer condicionales de qué dibujar?? o
-    for (size_t i = 0; i < CARTAS_TOTALES; i++)
+    if (hasStarted)
     {
-        if (i == 9)
+
+        for (size_t i = 0; i < CARTAS_TOTALES; i++)
         {
-            C2D_TargetClear(bottomScreen, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
-            C2D_SceneBegin(bottomScreen);
+            if (i == 9)
+            {
+                C2D_TargetClear(bottomScreen, C2D_Color32f(0.0f, 0.0f, 0.0f, 1.0f));
+                C2D_SceneBegin(bottomScreen);
+            }
+            C2D_DrawSprite(&this->cartasDeLosJugadores[i].sprite);
         }
-        C2D_DrawSprite(&this->cartasDeLosJugadores[i].sprite);
     }
 }
 
@@ -77,7 +81,7 @@ Escena::Escena(C2D_SpriteSheet *spriteSheet)
     // nuevaEscena = INICIO;
     this->cambiaEscena = false;
     this->spriteSheet = spriteSheet;
-
+    this->hasStarted = false;
     numImages = C2D_SpriteSheetCount(*spriteSheet);
     seHaTerminadoLaBaza = true; // esto es para pulsar A y repartir las cartas
 
@@ -188,6 +192,7 @@ void Escena::repartirCartas()
         }
     }
     setNextPlayerToShuffle();
+    hasStarted=true;
 }
 
 void Escena::finalizaBaza()

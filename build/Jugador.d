@@ -1,7 +1,7 @@
 Jugador.o: \
- C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Jugador.cpp \
- C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Jugador.hpp \
- C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Carta.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.cpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp \
+ C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp \
  C:/devkitPro/libctru/include/citro2d.h \
  C:/devkitPro/libctru/include/citro3d.h \
  C:/devkitPro/libctru/include/c3d/types.h \
@@ -110,8 +110,8 @@ Jugador.o: \
  C:/devkitPro/libctru/include/c2d/sprite.h \
  C:/devkitPro/libctru/include/c2d/text.h \
  C:/devkitPro/libctru/include/c2d/font.h
-C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Jugador.hpp:
-C:/Users/palonso/Documents/GitHub/Deck-Issues/source/Carta.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Jugador.hpp:
+C:/Users/Pablo/Desktop/3ds-homebrew/Deck-Issues/source/Carta.hpp:
 C:/devkitPro/libctru/include/citro2d.h:
 C:/devkitPro/libctru/include/citro3d.h:
 C:/devkitPro/libctru/include/c3d/types.h:

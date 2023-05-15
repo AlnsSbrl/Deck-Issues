@@ -19,6 +19,7 @@ public:
     TipoEscena numEscena; //representa a ESTA escena
     TipoEscena nuevaEscena; //escena a la que CAMBIA al terminar 
     bool cambiaEscena;
+    bool hasStarted;
     std::vector<Jugador> jugadores;
     std::vector<Carta> cartasDeLosJugadores;
     std::vector<size_t> cartasRepartidas;
